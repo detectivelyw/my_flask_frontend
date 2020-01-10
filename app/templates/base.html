@@ -1,14 +1,19 @@
 <html>
     <head>
       {% if title %}
-      <title>{{ title }} - My Flask App</title>
+      <title>{{ title }} - Microblog</title>
       {% else %}
-      <title>Welcome to My Flask App</title>
+      <title>Welcome to Microblog</title>
       {% endif %}
     </head>
     <body>
-        <div>My Flask App: <a href="/index">Home</a></div>
+        <div>
+          Microblog:
+            <a href="/index">Home</a>
+            <a href="/login">Login</a>
+        </div>
         <hr>
         {% block content %}{% endblock %}
     </body>
 </html>
+
