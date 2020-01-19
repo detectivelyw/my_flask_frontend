@@ -14,6 +14,6 @@
         <p>{{ form.submit() }}</p>
     </form>
     {% for post in posts %}
-    <div><p>{{ post.author.username }} says: <b>{{ post.kernel_version }}</b></p></div>
+        {% include '_post.html' %}
     {% endfor %}
 {% endblock %}
