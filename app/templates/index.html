@@ -1,7 +1,12 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-    <h1>Hi, {{ current_user.username }}!</h1>
+    <h1>Hello, {{ current_user.username }}!</h1>
+    <h2>Welcome to our Popular-Paths Service!</h2>
+    
+    <hr>
+    <h3>Available options:</h3>
+    
     <form action="" method="post">
         {{ form.hidden_tag() }}
         <p>
@@ -11,8 +16,18 @@
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
+        <p>
+            {{ form.container.label }}<br>
+            {{ form.container }}<br>
+            {% for error in form.container.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
         <p>{{ form.submit() }}</p>
     </form>
+
+    <hr>
+    <h3>Your requests:</h3>
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}

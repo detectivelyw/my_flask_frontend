@@ -44,7 +44,10 @@ class EditProfileForm(FlaskForm):
 
 class PostForm(FlaskForm):
     kernel_version = SelectField(
-        'LinuxKit Kernel Version',
-        choices=[('3.10', '3.10'), ('3,14', '3,14'), ('4.10', '4.10')]
+        'Please Choose a LinuxKit Kernel Version',
+        choices=[('4.4', '4.4'), ('4.9', '4.9'), ('4.14', '4.14'), ('4.15', '4.15')]
     )
+    container = SelectField(
+        'Please Choose a Docker Container to Run',
+        choices=[('all', 'all'), ('nginx', 'nginx'), ('alpine', 'alpine'), ('busybox', 'busybox'), ('redis', 'redis'), ('mongo', 'mongo'), ('httpd', 'httpd'), ('ubuntu', 'ubuntu'), ('postgress', 'postgress'), ('node', 'node'), ('mysql', 'mysql'), ('memcached', 'memcached'), ('registry', 'registry'), ('traefik', 'traefik'), ('hello-world', 'hello-world'), ('golang', 'golang'), ('docker', 'docker'), ('mariadb', 'mariadb'), ('consul', 'consul'), ('php', 'php'), ('python', 'python')])
     submit = SubmitField('Submit')

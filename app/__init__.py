@@ -16,7 +16,5 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
-app.redis = Redis.from_url(app.config['REDIS_URL'])
-app.task_queue = rq.Queue('flask-tasks', connection=app.redis)
 
 from app import routes, models, errors

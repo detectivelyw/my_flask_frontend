@@ -85,10 +85,10 @@ def edit_profile():
 def index():
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(body='request', kernel_version=form.kernel_version.data, user_id=current_user.id)
+        post = Post(body='request', kernel_version=form.kernel_version.data, container=form.container.data, user_id=current_user.id)
         db.session.add(post)
         db.session.commit()
-        flash('Your post is now live!')
+        flash('Your request has been made successfully!')
         return redirect(url_for('index'))
     posts = current_user.get_all_posts()
     return render_template("index.html", title='Home Page', form=form,
